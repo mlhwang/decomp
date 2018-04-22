@@ -1,0 +1,14 @@
+Survey.Survey.cssType = "bootstrap";
+
+var surveyJSON = {pages:[{name:"page1",elements:[{type:"boolean",name:"Q1_pic_carryover",label:"Carry over picture"},{type:"text",name:"question4",title:"Ingredients and/or components",isRequired:true},{type:"dropdown",name:"question7",title:"ingredient_name",choices:["finger (1.5 oz)","palm (3.0 oz)","half a fist (0.5 cups)","fist (1.0 cups)","thumb (1 Tablespoon)","flat hand (1 slice)"],choicesOrder:"asc"},{type:"text",name:"question3",title:"Ingredients and/or components",isRequired:true},{type:"dropdown",name:"question6",title:"ingredient_name",choices:["finger (1.5 oz)","palm (3.0 oz)","half a fist (0.5 cups)","fist (1.0 cups)","thumb (1 Tablespoon)","flat hand (1 slice)"],choicesOrder:"asc"},{type:"text",name:"question2",title:"Ingredients and/or components",isRequired:true},{type:"dropdown",name:"question1",title:"ingredient_name",choices:["finger (1.5 oz)","palm (3.0 oz)","half a fist (0.5 cups)","fist (1.0 cups)","thumb (1 Tablespoon)","flat hand (1 slice)"],choicesOrder:"asc"},{type:"paneldynamic",name:"question5",templateElements:[{type:"comment",name:"question8",title:"Pic_goes_here"},{type:"file",name:"question11",maxSize:0},{type:"expression",name:"question9",displayStyle:"none"},{type:"html",name:"question12"}],templateTitle:"Test_Carousel"}]}]}
+
+function sendDataToServer(survey) {
+    //send Ajax request to your web server.
+    alert("The results are:" + JSON.stringify(survey.data));
+}
+
+var survey = new Survey.Model(surveyJSON);
+$("#surveyContainer").Survey({
+    model: survey,
+    onComplete: sendDataToServer
+});
